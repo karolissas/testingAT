@@ -2,7 +2,7 @@ class Commands:
     def __init__(self, cmdText, expResponse, waitTime, addText):
         self.cmdText = cmdText
         self.expResponse = expResponse
-        self.waitTime = waitTime
+        self.waitTime = waitTime/1000
         self.addText = addText
 
 
