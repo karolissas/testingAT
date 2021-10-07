@@ -1,0 +1,23 @@
+{
+    "device":{
+       "name":"RUTX11",
+       "connectionType":"SSH",
+       "address":"192.168.1.1",
+       "uName":"Admin",
+       "password":"admin01"
+    },
+    "commands":[
+       {
+          "cmdText":"ATE1",
+          "expectedResponse":"OK",
+          "responseWaitingTime":100,
+          "aditionalTextInput":"Leave empty if not required"
+       },
+       {
+          "cmdText":"AT+CMGS='+37060000000'",
+          "expectedResponse":"+CMGS:400",
+          "responseWaitingTime":100,
+          "aditionalTextInput":"sms text"
+       }
+    ]
+ }
