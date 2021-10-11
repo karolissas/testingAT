@@ -8,10 +8,18 @@
     },
     "commands":[
        {
-          "cmdText":"ATE1",
-          "expectedResponse":"OK",
+          "cmdText":"ATI",
+          "expectedResponse":"Quectel EC21 Revision: EC21ECGAR06A04M1G OK",
           "responseWaitingTime":2,
-          "aditionalTextInput":"Leave empty if not required"
-       }
+          "aditionalTextInput":"",
+          "reset":true
+       },
+       {
+         "cmdText":"AT+GMI",
+         "expectedResponse":"Quectel OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      }
     ]
  }
