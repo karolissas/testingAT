@@ -2,7 +2,7 @@
     "device":{
        "name":"RUTX11",
        "connectionType":"serial",
-       "address":"COM6",
+       "address":"COM5",
        "uName":"Admin",
        "password":"admin01"
     },

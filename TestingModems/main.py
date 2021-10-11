@@ -35,19 +35,13 @@ def testing(link, commands):
         link.write(bytes(cmd.cmdText+"\r", encoding='ascii'))
         if cmd.addText == "":
             time.sleep(cmd.waitTime)
-            print("no adtional text")
         else:
-            print("aditional text")
             time.sleep(2)
             link.write(bytes(cmd.addText+"\x1a\n\r", encoding='ascii'))
             link.write(bytes("\r", encoding='ascii'))
             time.sleep(cmd.waitTime)
-        #for 
         response = link.readlines()
-        print(listToStr(response))
         strResponse = listToStr(response)
-        print(response)
-        
         if strResponse == cmd.expResponse:
             results += cmd.cmdText+";"+cmd.expResponse+";"+"Pass;"+strResponse+"\n"
         else:
@@ -63,8 +57,12 @@ def main():
     device, commands = readData()
     print(commands[0].addText)
     if device.connectionType == "serial":
-        link = getSerialConnection(device)
-        testing(link, commands)
+        try:
+            link = getSerialConnection(device)
+        except serial.SerialException:
+            print("Bad serial port")
+        else:
+            testing(link, commands)
     else:
         pass #prisijungimo metodas ssh
     print("Program ended testing")
