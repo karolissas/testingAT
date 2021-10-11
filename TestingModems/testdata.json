@@ -7,6 +7,20 @@
        "password":"admin01"
     },
     "commands":[
+      {
+         "cmdText":"AT+CMGF=1",
+         "expectedResponse":"OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"AT+CMGS=\"+37062892859\"",
+         "expectedResponse":"+CMGS: 102 OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"Sample text",
+         "reset":false
+      },
        {
           "cmdText":"ATI",
           "expectedResponse":"Quectel EC21 Revision: EC21ECGAR06A04M1G OK",

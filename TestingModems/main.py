@@ -24,18 +24,21 @@ def listToStr(listStr):
     output = ""
     for stri in listStr:
         if(stri!=listStr[0]):
-            output += str(stri.strip(), encoding='utf-8')+" "
+            output += str(stri.rstrip(), encoding='utf-8')+" "
+            output = output.replace('> Sample text ','')
     return ' '.join(output.split())
 def testing(link, commands):
-    results ="Test commnad; Expected result; Pass;\n"
+    results ="Test commnad; Expected result; Pass; Response\n"
     for cmd in commands:
         response = ""
+
         link.write(bytes(cmd.cmdText+"\r", encoding='ascii'))
         if cmd.addText == "":
             time.sleep(cmd.waitTime)
             print("no adtional text")
         else:
             print("aditional text")
+            time.sleep(2)
             link.write(bytes(cmd.addText+"\x1a\n\r", encoding='ascii'))
             link.write(bytes("\r", encoding='ascii'))
             time.sleep(cmd.waitTime)
@@ -46,9 +49,9 @@ def testing(link, commands):
         print(response)
         
         if strResponse == cmd.expResponse:
-            results += strResponse+";"+cmd.expResponse+";"+"Pass;\n"
+            results += cmd.cmdText+";"+cmd.expResponse+";"+"Pass;"+strResponse+"\n"
         else:
-            results += strResponse+";"+cmd.expResponse+";"+"Didn't pass;\n"
+            results += cmd.cmdText+";"+cmd.expResponse+";"+"Didn't pass;"+strResponse+"\n"
         if cmd.reset:
             link.write(bytes("AT&F0\r", encoding='ascii'))
             link.readlines()

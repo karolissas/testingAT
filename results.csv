@@ -1,3 +1,5 @@
-Test commnad; Expected result; Pass;
-Quectel EC21 Revision: EC21ECGAR06A04M1G OK;Quectel EC21 Revision: EC21ECGAR06A04M1G OK;Pass;
-Quectel OK;Quectel OK;Pass;
+Test commnad; Expected result; Pass; Response
+AT+CMGF=1;OK;Pass;OK
+AT+CMGS="+37062892859";+CMGS: 102 OK;Didn't pass;+CMGS: 103 OK
+ATI;Quectel EC21 Revision: EC21ECGAR06A04M1G OK;Pass;Quectel EC21 Revision: EC21ECGAR06A04M1G OK
+AT+GMI;Quectel OK;Pass;Quectel OK
