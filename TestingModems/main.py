@@ -1,5 +1,5 @@
 from data import Commands
-from data import Device
+from device import Device
 import paramiko
 import time
 import json
