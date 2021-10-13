@@ -1,0 +1,3 @@
+Test commnad; Expected result; Pass; Response
+AT+QURCCFG=?;+QURCCFG: "urcport",("usbat","usbmodem","uart1");Pass;+QURCCFG: "urcport",("usbat","usbmodem","uart1")
+ATI;OK;Didn't pass;Quectel EG06 Revision: EG06ELAR03A05M4G

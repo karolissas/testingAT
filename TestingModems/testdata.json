@@ -1,36 +1,22 @@
 {
     "device":{
        "name":"RUTX11",
-       "connectionType":"serial",
-       "address":"COM5",
-       "uName":"Admin",
-       "password":"admin01"
+       "connectionType":"SSH",
+       "address":"192.168.1.1",
+       "uName":"root",
+       "password":"Adminas01"
     },
     "commands":[
       {
-         "cmdText":"AT+CMGF=1",
-         "expectedResponse":"OK",
+         "cmdText":"AT+QURCCFG=?",
+         "expectedResponse":"+QURCCFG: \"urcport\",(\"usbat\",\"usbmodem\",\"uart1\")",
          "responseWaitingTime":2,
          "aditionalTextInput":"",
          "reset":false
       },
       {
-         "cmdText":"AT+CMGS=\"+37062892859\"",
-         "expectedResponse":"+CMGS: 102 OK",
-         "responseWaitingTime":2,
-         "aditionalTextInput":"Sample text",
-         "reset":false
-      },
-       {
-          "cmdText":"ATI",
-          "expectedResponse":"Quectel EC21 Revision: EC21ECGAR06A04M1G OK",
-          "responseWaitingTime":2,
-          "aditionalTextInput":"",
-          "reset":true
-       },
-       {
-         "cmdText":"AT+GMI",
-         "expectedResponse":"Quectel OK",
+         "cmdText":"ATI",
+         "expectedResponse":"OK",
          "responseWaitingTime":2,
          "aditionalTextInput":"",
          "reset":false
