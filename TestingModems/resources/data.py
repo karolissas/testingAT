@@ -4,4 +4,4 @@ class Commands:
         self.expResponse = expResponse
         self.waitTime = waitTime/1000
         self.addText = addText
-        self.reset = reset
+        self.reset = reset 

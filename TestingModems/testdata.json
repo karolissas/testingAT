@@ -1,8 +1,8 @@
 {
     "device":{
        "name":"RUTX11",
-       "connectionType":"SSH",
-       "address":"192.168.1.1",
+       "connectionType":"Serial",
+       "address":"COM6",
        "uName":"root",
        "password":"Adminas01"
     },
@@ -16,6 +16,20 @@
       },
       {
          "cmdText":"ATI",
+         "expectedResponse":"OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"AT+CSQ",
+         "expectedResponse":"OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"AT+COPS?",
          "expectedResponse":"OK",
          "responseWaitingTime":2,
          "aditionalTextInput":"",

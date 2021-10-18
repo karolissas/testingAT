@@ -5,3 +5,4 @@ class Device:
         self.address = address
         self.uName = uName
         self.password = password
+   

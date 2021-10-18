@@ -1,3 +1,5 @@
 Test commnad; Expected result; Pass; Response
-AT+QURCCFG=?;+QURCCFG: "urcport",("usbat","usbmodem","uart1");Pass;+QURCCFG: "urcport",("usbat","usbmodem","uart1")
-ATI;OK;Didn't pass;Quectel EG06 Revision: EG06ELAR03A05M4G
+AT+QURCCFG=?;+QURCCFG: "urcport",("usbat","usbmodem","uart1");Didn't pass;AT+QURCCFG=? +QURCCFG: "urcport",("usbat","usbmodem","uart1","uart2") OK
+ATI;OK;Didn't pass;ATI Quectel EC21 Revision: EC21ECGAR06A04M1G OK
+AT+CSQ;OK;Didn't pass;AT+CSQ +CSQ: 11,99 OK
+AT+COPS?;OK;Didn't pass;AT+COPS? +COPS: 0 OK
