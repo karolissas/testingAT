@@ -1,7 +1,6 @@
-from os import error
 from resources.connection import link
 import argparse
-import sys, getopt
+import sys
 
 def runArgs():
     my_parser = argparse.ArgumentParser(usage="-h for help")

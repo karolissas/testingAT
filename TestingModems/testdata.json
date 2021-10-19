@@ -2,7 +2,7 @@
     "device":{
        "name":"RUTX11",
        "connectionType":"Serial",
-       "address":"COM5",
+       "address":"COM6",
        "uName":"root",
        "password":"Adminas01"
     },
@@ -10,6 +10,27 @@
       {
          "cmdText":"AT+QURCCFG=?",
          "expectedResponse":"+QURCCFG: \"urcport\",(\"usbat\",\"usbmodem\",\"uart1\")",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"ATI",
+         "expectedResponse":"OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"AT+CSQ",
+         "expectedResponse":"OK",
+         "responseWaitingTime":2,
+         "aditionalTextInput":"",
+         "reset":false
+      },
+      {
+         "cmdText":"AT+COPS?",
+         "expectedResponse":"OK",
          "responseWaitingTime":2,
          "aditionalTextInput":"",
          "reset":false
