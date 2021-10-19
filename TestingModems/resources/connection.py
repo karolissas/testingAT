@@ -1,4 +1,6 @@
 import json
+import ftplib
+import os
 from resources.data import Commands
 from resources.device import Device
 
@@ -26,13 +28,22 @@ class Connection:
             print(e)
             return False
 
-    def writeResults(self, data):
+    def writeResults(self, data, ftp, address, username, password, port):
         with open('naujas.csv', 'w') as ope:
             ope.write(data)
+        ope.close()
+        if ftp:
+            filename = "naujas.csv"
+            ftpConnect = ftplib.FTP(address, username, password)
+            with open('naujas.csv', 'rb') as upload:
+                ftpConnect.storbinary(f"STOR {filename}",upload)
+                ftpConnect.quit()
+            os.remove('naujas.csv')
 
-    def startTesting(self, module, link, commands):
+
+    def startTesting(self, module, link, commands, ftp, address, username, password, port):
         data = module.runTest(link,commands)
-        self.writeResults(data)
+        self.writeResults(data, ftp, address, username, password, port)
 
     def connect(self, link, device):
         data = link.connect(device)
@@ -51,13 +62,15 @@ class Connection:
             testCommands.append(temp)
         return testDevice, testCommands
 
-    def handle(self):
+    def handle(self, ftp, address, username, password, port, testIP):
         deviceData, commands = self.readData()
         type = deviceData.connectionType
         module = self.loadModule(type)
+        if testIP != "":
+            deviceData.address = testIP
         connectionLink = self.callConnection(module,deviceData)
         link = self.connect(connectionLink, deviceData)
-        self.startTesting(connectionLink, link, commands)
+        self.startTesting(connectionLink, link, commands, ftp, address, username, password, port)
         self.disconnect(connectionLink, link)
         
 if __name__ == __name__:
